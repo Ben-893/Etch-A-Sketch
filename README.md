@@ -1,4 +1,4 @@
-# Etch-A-Sketch
+# Etch-A-Sketch 🖍
 
 A small etch-a-sketch app I made using some JavaScript
 
