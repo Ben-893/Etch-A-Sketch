@@ -1,10 +1,9 @@
-// Select the elements on the page - canvas, shake button
 const canvas = document.querySelector('#etch-a-sketch');
 const ctx = canvas.getContext('2d');
 
 const shakeButton = document.querySelector('.shake');
 const MOVE_AMOUNT = 50;
-// Setup the canvas for drawing
+
 const { width, height } = canvas;
 
 let x = Math.floor(Math.random() * width);
@@ -21,11 +20,10 @@ ctx.beginPath();
 ctx.moveTo(x, y);
 ctx.lineTo(x, y);
 ctx.stroke();
-// Write a draw function
+
 function draw({ key }) {
   ctx.strokeStyle = `hsl(${Math.random() * 360}, 100%, 50%)`;
   hue += 10;
-  console.log(key);
   ctx.beginPath();
   ctx.moveTo(x, y);
 
@@ -49,14 +47,14 @@ function draw({ key }) {
   ctx.lineTo(x, y);
   ctx.stroke();
 }
-// Write a handler for the keys
+
 function handleKey(e) {
   if (e.key.includes('Arrow')) {
     e.preventDefault();
     draw({ key: e.key });
   }
 }
-// Clear and Shake function
+
 function clearCanvas() {
   canvas.classList.add('shake');
   ctx.clearRect(0, 0, width, height);
@@ -69,6 +67,5 @@ function clearCanvas() {
   );
 }
 
-// Listen for Arrow keys
 window.addEventListener('keydown', handleKey);
 shakeButton.addEventListener('click', clearCanvas);
